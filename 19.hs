@@ -50,7 +50,8 @@ lengthOfMonth (Date  _ y m _)
 
 countSundays :: Date -> Int
 countSundays (Date w y m d)
-  | y == 2001 = 0
+  | y >= 2001 = 0
+  | y == 1900 = n
   | w == Sunday && d == 1 = 1 + n
   | otherwise = n
   where n = countSundays (incrementDate (Date w y m d))
