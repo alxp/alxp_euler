@@ -1,0 +1,5 @@
+import Util (digits)
+
+factorial = foldl (*) 100 [99,98..1]
+
+sum = foldl (+) 0 (digits factorial)

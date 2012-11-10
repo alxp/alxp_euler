@@ -1,0 +1,3 @@
+isPrime :: Int -> Bool
+isPrime n = length [j | j <- upToSqrt n, n `mod` j == 0] == 0
+

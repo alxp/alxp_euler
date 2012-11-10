@@ -1,0 +1,15 @@
+p :: Integer
+p = 9699690
+
+primes :: [Integer]
+primes = [19, 17, 13, 11, 7, 5, 3, 2]
+
+fullyDivisible :: Integer -> Bool
+fullyDivisible m = and [m `mod` o == 0 | o <- [1..20]]
+
+-- Take a number and the remaining list of primes, and divide by the largest
+-- prime until we get to an empty list.
+next :: Integer -> [Integer] -> Integer
+next n ps | n `mod` (head ps) == 0 = next (n `div` (head ps)) ps
+          | otherwise = next n (drop 1 ps)
+

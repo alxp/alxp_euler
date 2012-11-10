@@ -1,0 +1,7 @@
+
+isInt x = x == fromInteger (round x)
+
+
+
+factors :: [Integer]
+factors = [(x, y) | x <- [1..500], y <- [1..500], 
