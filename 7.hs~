@@ -1,4 +1,0 @@
-isPrime :: Int -> Bool
-isPrime n = length [j | j <- upToSqrt n, n `mod` j == 0] == 0
-
-answer = take 10000 [n | n <- [1..], isPrime n]

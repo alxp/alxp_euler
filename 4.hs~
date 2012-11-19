@@ -1,6 +1,0 @@
-largest = 999 * 999
-
-isPalindrome :: Int -> Bool
-isPalindrome n = show n == (reverse $ show n)
-
-productsOfDigits

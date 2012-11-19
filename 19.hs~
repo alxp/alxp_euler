@@ -1,7 +1,0 @@
-
--- Weekday (0-7)
-
-data Weekday = Sunday | Monday | Tuesday | Wednesday
-             | Thursday | Friday | Saturday
-                                   
-data Date = Int Int Int Int

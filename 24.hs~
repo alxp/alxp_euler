@@ -1,5 +1,0 @@
-
-digits = [0..9]
-
-permute :: Integer -> [String]
-permute n = map (++ permute n - 1) digits
