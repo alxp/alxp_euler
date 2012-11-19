@@ -2,7 +2,10 @@
 module Util where
 
 isPrime :: Integer -> Bool
-isPrime n = length [j | j <- upToSqrt n, n `mod` j == 0] == 0
+isPrime 2 = True
+isPrime n
+  | n < 2 = False
+  | otherwise = length [j | j <- upToSqrt n, n `mod` j == 0] == 0
 --isPrime n = n == head (drop (length ps - 1) (ps))
 --  where ps = primesToGT n
 
