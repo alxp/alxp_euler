@@ -13,6 +13,7 @@ prod (x: xs) = x * prod xs
 
 allFactors :: Integer -> [Integer]
 allFactors 0 = []
+allFactors 1 = [1]
 allFactors n = nub $ map prod (combinations (factor n))
 
 triangles :: [Integer]
