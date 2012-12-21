@@ -1,9 +1,9 @@
 import Factoring
 import Data.List
 
--- After finishing this I realize I could hav ejust simply run through the
--- whole set of number 11-99 / 11-99 in less code but I sitll like
--- taking advantage of declaring an instance of (*) which gives you
+-- After finishing this I realize I could have just run through the
+-- whole set of numbers 11-99 / 11-99 in less code but I sitll like
+-- taking advantage of declaring an instance of (*) which gives
 -- associativity and lets me do foldl on fraction multiplication.
 
 data Fraction = Fraction (Integer, Integer)
