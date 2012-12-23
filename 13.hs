@@ -11,4 +11,4 @@ calc fname = do
   let ns = numbers contents
   print $ take 10 $ show $ sum ns
 
-                            
+main = calc "13.txt"                            

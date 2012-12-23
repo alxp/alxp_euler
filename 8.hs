@@ -22,3 +22,8 @@ digits (x: xs) = (((read [x]) :: Integer) : digits xs)
 
 highest :: String
 highest = gSum number "00000"
+
+answer = prods highest
+
+main = do
+  print answer

@@ -1,5 +1,4 @@
 {-# LANGUAGE BangPatterns #-}
-module Three where
 
 isPrime :: Int -> Bool
 isPrime n = length [j | j <- upToSqrt n, n `mod` j == 0] == 0
@@ -18,3 +17,9 @@ intsBelow c n | c > round (sqrt (fromIntegral n)) = []
               | otherwise = c+1 : intsBelow (c+1) n
 
 q3 = factor 600851475143
+
+answer = last q3
+
+main :: IO ()
+main = do
+  print $ show answer

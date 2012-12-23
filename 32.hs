@@ -1,10 +1,7 @@
 import Data.List
 import Data.Set
 import Permute
-
-digits :: Integer -> [Integer]
-digits 0 = []
-digits i = (i `mod` 10) : (digits (i `div` 10))
+import Util
 
 numDigits :: Integer -> Integer
 numDigits n = 1 + floor(logBase 10 (fromIntegral n))

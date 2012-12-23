@@ -1,4 +1,4 @@
-import Util (digits)
+import Util
 
 factorial :: Integer
 factorial = foldl (*) 100 [99,98..1]

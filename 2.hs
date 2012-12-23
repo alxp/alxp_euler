@@ -12,3 +12,5 @@ fibsBelow limit = go 0 limit
                | otherwise = [fib n] ++ (go (n + 1) limit)
 
 total = sum [j | j <- fibsBelow 4000000, j `mod` 2 == 0]
+
+main = print total

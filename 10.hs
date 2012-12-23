@@ -13,3 +13,6 @@ primesToGT m = 2 : sieve [3,5..m]  where
   sieve (p:xs)
     | p*p > m = p : xs
     | True    = p : sieve [x | x <- xs, rem x p /= 0]
+                
+main = do
+  print $ show $ sum (primesToGT 2000000)

@@ -9,3 +9,6 @@ intsBelow c n | c > round (sqrt (fromIntegral n)) = []
               | otherwise = c+1 : intsBelow (c+1) n
                             
 answer = drop 9999 $ take 10000 [n | n <- [1..], isPrime n]
+
+main = do
+  print $ show answer

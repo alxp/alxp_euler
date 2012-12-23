@@ -14,3 +14,6 @@ lengthChecker highest next
   | next == 1 = highest
   | length (recursiveSequence next) > length (recursiveSequence highest) = lengthChecker next (next - 1)
   | otherwise = lengthChecker highest (next - 1)
+                
+main = do
+  print $ show $ lengthChecker 1 1000000 

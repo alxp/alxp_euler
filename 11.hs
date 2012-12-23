@@ -60,4 +60,5 @@ calc fname = do
   let ns = numbers contents
   print $ maximum (map (highestProdOfRow 0) (concat [diagonalsUp ns, diagonalsDown ns, columns ns, ns]))
 
-                            
+main = do                            
+  calc "11.txt"

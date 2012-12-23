@@ -10,3 +10,6 @@ factors = [(x, y) | x <- [1..500], y <- [1..500], isInt (hyp x y), (fromIntegral
 
 prod = x * y * floor (hyp x y)
   where (x, y) = head factors
+        
+main = do
+  print prod

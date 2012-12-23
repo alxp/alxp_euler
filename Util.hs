@@ -34,3 +34,17 @@ primesToGT m = 2 : sieve [3,5..m]  where
     | p*p > m = p : xs
     | True    = p : sieve [x | x <- xs, rem x p /= 0]
                 
+digits :: Integer -> [Integer]
+digits 0 = []
+digits i = (i `mod` 10) : (digits (i `div` 10))
+
+factorial :: Integer -> Integer
+factorial x = foldl (*) 1 [1..x]
+                
+numDigits :: Integer -> Integer
+numDigits x
+  | x < 0 = numDigits (abs x)
+  | x < 10 = 1
+  | otherwise = 1 + numDigits (x `div` 10)
+                
+              

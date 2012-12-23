@@ -9,3 +9,6 @@ isPalindrome n = show n == (reverse $ show n)
 
 largestPalindrome :: Int
 largestPalindrome = head $ reverse $ sort [m * n| m <- reverse [1..999], n <- reverse[1..999], isPalindrome (m * n)]
+
+main = do
+  print $ show largestPalindrome

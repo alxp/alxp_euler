@@ -15,5 +15,7 @@ next n ps
   | length ps == 1 = n
   | otherwise = next n (drop 1 ps)
 
+answer = head [x | x <- [1..], fullyDivisible x]
 
-
+main = do
+  print $ show answer

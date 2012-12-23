@@ -10,6 +10,7 @@ prod [] = 1
 prod (x: xs) = x * prod xs
 
 allFactors :: Integer -> [Integer]
+allFactors 1 = [1]
 allFactors n = nub $ map prod (combinations (factor n))
 
 triangles :: [Integer]
@@ -19,4 +20,5 @@ triangles' :: Integer -> Integer -> [Integer]
 triangles' step prev = next : (triangles' (step + 1) next)
   where next = prev + step
 
-main = print $ take 1 [x | x <- triangles, length (allFactors x) > 300]
+main = do
+  print $ show $take 1 [x | x <- triangles, length (allFactors x) > 500]
