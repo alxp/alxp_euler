@@ -55,3 +55,5 @@ countSundays (Date w y m d)
   | w == Sunday && d == 1 = 1 + n
   | otherwise = n
   where n = countSundays (incrementDate (Date w y m d))
+
+main = print $ show $ countSundays (Date Tuesday 1901 Jan 01)

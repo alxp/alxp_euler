@@ -33,3 +33,5 @@ calc fname = do
   print $ show ns
   let t = foldTree (createTree ns)
   print $ show t
+
+main = calc "18.txt"
