@@ -59,3 +59,5 @@ countLetters [] = 0
 countLetters (x: xs)
   | elem x " -" = countLetters xs
   | otherwise = 1 + countLetters xs
+                
+main = print $ show $ sum [countLetters $ thousands x | x <- [1..1000]]
