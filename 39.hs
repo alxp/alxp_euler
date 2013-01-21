@@ -1,34 +1,37 @@
-import Util
 import Data.List
 
-type Triangle = (Integer, Integer)
-
-isSquare x = elem x (takeWhile (<= x) [x^2 | x <- [1..]])
-
-evenRight :: Triangle -> Bool
-evenRight (l, h) = isSquare (l ^ 2 + h ^ 2)
-
-evenTriangle :: Integer -> Integer -> Bool
-evenTriangle a b = isSquare (a^2 + b^2)
-
-s :: Integer -> Integer -> Integer
-s a b = (a + b + floor x)
-  where x = (sqrt (fromIntegral (a^2 + b^2)))
-
+{- Calculate the perimeter of a right triangle with legs a and b, but only if
+   the triangle's sides are all integers. Nothing otherwise.
+-}
 s' :: Integer -> Integer -> Maybe Integer
 s' a b
-  | x - fromIntegral (floor x) == 0 = Just (a + b + floor x)
+  | size - fromIntegral (floor size) == 0 = Just (floor size)
   | otherwise = Nothing
-  where x = (sqrt (fromIntegral (a^2 + b^2)))
+  -- size uses the Pythagorean theorem to solve for the hypoteneuse.
+  where size = sqrt (fromIntegral (a^2 + b^2)) + fromIntegral(a + b)
         
-triangles = nub [((s a b), a, b) | a <- [1..500], b <- [1..500], s' a b /= Nothing, s' a b <= Just 1000, b >= a]
+{- Generate a list of triangles with 3 whole number sides. We only want triangles with
+   perimeter <= 1000, so we can assume no single side will be > 1000. We eliminate
+   duplicates by first not repeating ourselves by ensuring b >= a, while using nub
+   to catch the special case of a == b.
+-}
+triangles = nub [((s' a b), a, b) 
+                | a <- [1..500], b <- [a..500]
+                  , s' a b /= Nothing, s' a b <= Just 1000]
 
-fst3 :: (a, a, a) -> a
+fst3 :: (a, b, c) -> a
 fst3 (x, _, _) = x
 
-frequency :: Ord a => [(a, a, a)] -> [(Int,a)] 
+-- Discard the triangles' legs and just keep the perimeters
+perims :: Ord a => [(Maybe a, b, b)] -> [Maybe a]
+perims x = fst3 $ unzip3 x
+
+{- frequency function taken from this Stack Overflow answer
+   http://stackoverflow.com/a/10398926/19513
+-}
+frequency :: Ord a => [(Maybe a, b, b)] -> [(Int, Maybe a)] 
 frequency x = map (\l -> (length l, head l)) (group (sort list))
-  where list = fst3 (unzip3 x)
+  where list = perims x
         
 answer = last $ sort $ frequency triangles
 
