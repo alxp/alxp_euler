@@ -23,3 +23,11 @@ triangles' :: Integer -> Integer -> [Integer]
 triangles' step prev = next : (triangles' (step + 1) next)
   where next = prev + step
 
+triangular :: Integer -> Bool
+triangular n = triangular' 0 n
+
+triangular' :: Integer -> Integer -> Bool
+triangular' i n
+  | triangles !! (fromIntegral i) == n = True
+  | triangles !! (fromIntegral i) > n = False
+  | otherwise = triangular' (i + 1) n

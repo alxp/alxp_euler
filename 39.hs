@@ -17,7 +17,7 @@ s' a b
 -}
 triangles = nub [((s' a b), a, b) 
                 | a <- [1..500], b <- [a..500]
-                  , s' a b /= Nothing, s' a b <= Just 1000]
+                  , s' a b /= Nothing, s' a b <= Just 1000, a + b < 500]
 
 fst3 :: (a, b, c) -> a
 fst3 (x, _, _) = x

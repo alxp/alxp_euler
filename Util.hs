@@ -1,6 +1,8 @@
 {-# LANGUAGE BangPatterns #-}
 module Util where
 
+import Data.Array.Unboxed
+
 isPrime :: Integer -> Bool
 isPrime 2 = True
 isPrime n
@@ -47,4 +49,6 @@ numDigits x
   | x < 10 = 1
   | otherwise = 1 + numDigits (x `div` 10)
                 
-              
+concatDigits n m = m * 10 ^ (numDigits n) + n              
+
+concatDigits' m n = concatDigits n m

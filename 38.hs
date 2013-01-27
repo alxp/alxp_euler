@@ -2,8 +2,6 @@ import Util
 
 mul123 a = (1 * a) * 10^6 + (2 * a) * 10^3 + (3 * a) * 10^0
 
-concatDigits n m = m * 10 ^ (numDigits n) + n
-
 mul1tox :: Integer -> Integer -> Integer
 mul1tox n d
   | d == 0 = 0

@@ -1,16 +1,16 @@
 import Util
 import Data.Array.Unboxed
 
-oneIfPrime :: Integer -> Int
-oneIfPrime x
-  | isPrime x = 1
-  | otherwise = 0
-
 allPrimes :: UArray Integer Bool
 allPrimes = array (1,1000000) [(x, isPrime x) | x <- [1..1000000]]
 
 isPrime' :: Integer -> Bool
 isPrime' x = allPrimes ! x
+
+oneIfPrime :: Integer -> Int
+oneIfPrime x
+  | isPrime x = 1
+  | otherwise = 0
 
 rotate :: Integer -> Integer
 rotate x = end * 10 ^ d + start where
