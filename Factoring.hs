@@ -31,3 +31,16 @@ triangular' i n
   | triangles !! (fromIntegral i) == n = True
   | triangles !! (fromIntegral i) > n = False
   | otherwise = triangular' (i + 1) n
+                
+isPentagonal :: Integer -> Bool
+isPentagonal y = x - (fromIntegral (floor x)) == 0.0
+  where x = ((sqrt $ fromIntegral (24 * y + 1)) + 1) / 6                
+        
+isTriangular :: Integer -> Bool
+isTriangular y = fromIntegral (floor x) - x == 0
+  where x =((sqrt (8 * (fromIntegral y) + 1) - 1)::Double) / 2 
+        
+isHexagonal :: Integer -> Bool
+isHexagonal y = fromIntegral (floor x) - x == 0
+  where x =((sqrt (8 * (fromIntegral y) + 1) + 1)::Double) / 4 
+
